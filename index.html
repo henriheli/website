@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Murre - Exploring healthcare and compliance at sea</title>
+  <meta name="description" content="Murre conducts research studying how healthcare and technology intersect in maritime operations, with a focus on medical compliance." />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root{
+      --bg: #ffffff;
+      --fg: #1f2a37;
+      --muted: #4b5563;
+      --accent: #0f3d73;  /* maritime blue */
+      --accent-weak:#e6f0fa;
+      --card:#f7fafc;
+      --maxw: 720px;
+      --radius: 14px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b1220;
+        --fg:#e5e7eb;
+        --muted:#9ca3af;
+        --accent:#9ec7ff;
+        --accent-weak:#0f223d;
+        --card:#0f172a;
+      }
+    }
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:var(--bg);
+      color:var(--fg);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:24px clamp(16px, 3vw, 28px);}
+    header{
+      padding:48px 0 28px;
+      text-align:left;
+    }
+    .brand{
+      display:inline-block;
+      font-weight:700;
+      font-size:clamp(28px, 5vw, 40px);
+      letter-spacing:0.2px;
+      color:var(--accent);
+      margin:0 0 6px 0;
+    }
+    .tagline{
+      margin:0;
+      color:var(--muted);
+      font-size:clamp(16px, 2.4vw, 18px);
+    }
+    section{
+      background:var(--card);
+      border:1px solid color-mix(in oklab, var(--accent) 12%, transparent);
+      border-radius:var(--radius);
+      padding:20px clamp(16px, 2.5vw, 24px);
+      margin:18px 0;
+    }
+    h2{
+      margin:0 0 8px 0;
+      font-size:clamp(18px, 2.6vw, 20px);
+      color:var(--accent);
+    }
+    p{margin:10px 0;}
+    .note{
+      background:var(--accent-weak);
+      border-radius:12px;
+      padding:14px 16px;
+      margin-top:12px;
+      color:var(--fg);
+    }
+    .contact{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      padding:18px clamp(16px, 2.5vw, 24px);
+      background:linear-gradient(0deg, var(--accent-weak), var(--accent-weak));
+      border-radius:var(--radius);
+      border:1px dashed color-mix(in oklab, var(--accent) 25%, transparent);
+    }
+    .cta{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid color-mix(in oklab, var(--accent) 35%, transparent);
+      background:var(--bg);
+      text-decoration:none;
+      color:var(--accent);
+      font-weight:600;
+      transition:transform .05s ease, box-shadow .15s ease;
+    }
+    .cta:hover{ transform:translateY(-1px); box-shadow:0 4px 14px color-mix(in oklab, var(--accent) 14%, transparent);}
+    .muted{color:var(--muted);}
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main">
+    <header>
+      <h1 class="brand">Murre</h1>
+      <p class="tagline">Exploring healthcare and compliance at sea.</p>
+    </header>
+
+    <section aria-labelledby="about">
+      <h2 id="about">About</h2>
+      <p>
+        Murre studies how healthcare and technology intersect in the maritime sector.
+        The current focus is on how shipping and offshore organizations manage medical compliance - from crew health
+        certifications to onboard medical processes.
+      </p>
+      <p class="note">
+        We speak with professionals across operations, healthcare, and regulation to understand what’s working, where the
+        challenges are, and how practices could evolve.
+      </p>
+    </section>
+
+    <section aria-labelledby="purpose">
+      <h2 id="purpose">Purpose</h2>
+      <p>
+        Maritime healthcare compliance is essential but complex. Regulations differ, systems don’t always align, and those
+        responsible for compliance manage competing priorities. Murre aims to build a clearer picture of this space and
+        share insights that help improve health, safety, and efficiency across the industry.
+      </p>
+    </section>
+
+    <section aria-labelledby="contact">
+      <h2 id="contact">Contact</h2>
+      <p class="muted">If you work in maritime health, compliance, or technology and are open to a brief conversation, we’d like to hear from you.</p>
+      <div class="contact">
+        <a class="cta" href="mailto:info@murre.fi">Email: info@murre.fi</a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
