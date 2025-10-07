@@ -3,140 +3,174 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Murre - Exploring healthcare and compliance at sea</title>
-  <meta name="description" content="Murre conducts research studying how healthcare and technology intersect in maritime operations, with a focus on medical compliance." />
+  <title>Murre — Exploring healthcare and compliance at sea</title>
+  <meta name="description" content="Murre studies how healthcare and technology intersect in the maritime sector. The current focus is on how shipping and offshore organizations manage medical compliance - from crew health certifications to onboard medical processes." />
   <meta name="color-scheme" content="light dark" />
   <style>
     :root{
-      --bg: #ffffff;
-      --fg: #1f2a37;
-      --muted: #4b5563;
-      --accent: #0f3d73;  /* maritime blue */
-      --accent-weak:#e6f0fa;
-      --card:#f7fafc;
-      --maxw: 720px;
-      --radius: 14px;
+      --bg: #f9fbff;          /* lighter, fresh background */
+      --panel:#ffffff;        /* white cards */
+      --fg: #1e293b;          /* slate-800 */
+      --muted:#64748b;        /* slate-500 */
+      --accent:#0f3d73;       /* maritime blue */
+      --accent-weak:#e8f1ff;  /* pale blue */
+      --shadow: 0 8px 24px rgba(15, 61, 115, 0.08);
+      --radius: 16px;
+      --maxw: 760px;
     }
     @media (prefers-color-scheme: dark){
       :root{
         --bg:#0b1220;
+        --panel:#0f172a;
         --fg:#e5e7eb;
-        --muted:#9ca3af;
+        --muted:#94a3b8;
         --accent:#9ec7ff;
         --accent-weak:#0f223d;
-        --card:#0f172a;
+        --shadow: 0 8px 24px rgba(0,0,0,.35);
       }
     }
-    *{box-sizing:border-box;}
-    html,body{height:100%;}
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:var(--bg);
+      background:
+        radial-gradient(1200px 500px at 10% -10%, #ffffff 0%, transparent 70%),
+        radial-gradient(900px 400px at 110% -20%, #eef6ff 0%, transparent 70%),
+        var(--bg);
       color:var(--fg);
       line-height:1.6;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
     }
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:24px clamp(16px, 3vw, 28px);}
-    header{
-      padding:48px 0 28px;
-      text-align:left;
+
+    .wrap{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:28px clamp(16px,4vw,28px) 64px;
     }
-    .brand{
-      display:inline-block;
+
+    /* Header */
+    header{
+      text-align:left;
+      padding:40px 0 20px;
+    }
+    .logo{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      background:var(--panel);
+      border:1px solid rgba(15,61,115,0.07);
+      border-radius:999px;
+      padding:10px 14px;
+      box-shadow:var(--shadow);
+    }
+    .mark{
+      display:inline-grid;
+      place-items:center;
+      width:34px;height:34px;
+      border-radius:50%;
+      background:linear-gradient(180deg, var(--accent), #0b2d56);
+      color:#fff;
       font-weight:700;
-      font-size:clamp(28px, 5vw, 40px);
-      letter-spacing:0.2px;
+      letter-spacing:.2px;
+    }
+    .wordmark{
+      margin:0;
+      font-weight:700;
+      letter-spacing:.2px;
+      font-size:clamp(18px,2.6vw,20px);
       color:var(--accent);
-      margin:0 0 6px 0;
     }
     .tagline{
-      margin:0;
-      color:var(--muted);
-      font-size:clamp(16px, 2.4vw, 18px);
+      margin:14px 0 0 2px;
+      font-size:clamp(18px,3.4vw,22px);
+      color:var(--fg);
     }
-    section{
-      background:var(--card);
-      border:1px solid color-mix(in oklab, var(--accent) 12%, transparent);
+    .sub{
+      margin:6px 0 0 2px;
+      color:var(--muted);
+      font-size:clamp(14px,2.6vw,16px);
+    }
+
+    /* Cards */
+    .card{
+      background:var(--panel);
+      border:1px solid rgba(15,61,115,0.07);
       border-radius:var(--radius);
-      padding:20px clamp(16px, 2.5vw, 24px);
-      margin:18px 0;
+      padding:22px clamp(18px,3.2vw,26px);
+      margin-top:16px;
+      box-shadow:var(--shadow);
     }
     h2{
       margin:0 0 8px 0;
-      font-size:clamp(18px, 2.6vw, 20px);
+      font-size:clamp(18px,2.6vw,20px);
       color:var(--accent);
     }
-    p{margin:10px 0;}
+    p{margin:10px 0}
     .note{
       background:var(--accent-weak);
       border-radius:12px;
-      padding:14px 16px;
-      margin-top:12px;
-      color:var(--fg);
+      padding:12px 14px;
+      margin-top:10px;
     }
+
+    /* Contact */
     .contact{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      padding:18px clamp(16px, 2.5vw, 24px);
-      background:linear-gradient(0deg, var(--accent-weak), var(--accent-weak));
-      border-radius:var(--radius);
-      border:1px dashed color-mix(in oklab, var(--accent) 25%, transparent);
+      display:flex; gap:12px; align-items:center; flex-wrap:wrap;
+      margin-top:6px;
     }
     .cta{
       display:inline-block;
-      padding:10px 14px;
-      border-radius:10px;
-      border:1px solid color-mix(in oklab, var(--accent) 35%, transparent);
-      background:var(--bg);
+      padding:12px 16px;
+      border-radius:12px;
+      background:linear-gradient(180deg, #ffffff, #f4f8ff);
+      border:1px solid rgba(15,61,115,0.12);
       text-decoration:none;
       color:var(--accent);
       font-weight:600;
-      transition:transform .05s ease, box-shadow .15s ease;
+      transition:transform .06s ease, box-shadow .15s ease, border-color .15s ease;
+      box-shadow:var(--shadow);
     }
-    .cta:hover{ transform:translateY(-1px); box-shadow:0 4px 14px color-mix(in oklab, var(--accent) 14%, transparent);}
-    .muted{color:var(--muted);}
+    .cta:hover{ transform:translateY(-1px); border-color:rgba(15,61,115,0.25); }
   </style>
 </head>
 <body>
-  <div class="wrap" role="main">
+  <main class="wrap">
     <header>
-      <h1 class="brand">Murre</h1>
-      <p class="tagline">Exploring healthcare and compliance at sea.</p>
+      <div class="logo" aria-label="Murre">
+        <div class="mark" aria-hidden="true">M</div>
+        <p class="wordmark">Murre</p>
+      </div>
+      <h1 class="tagline">Exploring healthcare and compliance at sea.</h1>
+      <p class="sub">Independent research on maritime medical compliance.</p>
     </header>
 
-    <section aria-labelledby="about">
+    <section class="card" aria-labelledby="about">
       <h2 id="about">About</h2>
       <p>
-        Murre studies how healthcare and technology intersect in the maritime sector.
-        The current focus is on how shipping and offshore organizations manage medical compliance - from crew health
-        certifications to onboard medical processes.
+        Murre studies how healthcare and technology intersect in the maritime sector. The current focus is on how shipping and offshore organizations manage medical compliance - from crew health certifications to onboard medical processes.
       </p>
       <p class="note">
-        We speak with professionals across operations, healthcare, and regulation to understand what’s working, where the
-        challenges are, and how practices could evolve.
+        We speak with professionals across operations, healthcare, and regulation to understand what’s working,
+        where the challenges are, and how practices could evolve.
       </p>
     </section>
 
-    <section aria-labelledby="purpose">
+    <section class="card" aria-labelledby="purpose">
       <h2 id="purpose">Purpose</h2>
       <p>
-        Maritime healthcare compliance is essential but complex. Regulations differ, systems don’t always align, and those
-        responsible for compliance manage competing priorities. Murre aims to build a clearer picture of this space and
-        share insights that help improve health, safety, and efficiency across the industry.
+ Maritime healthcare compliance is essential but complex. Regulations differ, systems don’t always align, and those responsible for compliance manage competing priorities. Murre aims to build a clearer picture of this space and share insights that help improve health, safety, and efficiency across the industry. 
       </p>
     </section>
 
-    <section aria-labelledby="contact">
+    <section class="card" aria-labelledby="contact">
       <h2 id="contact">Contact</h2>
-      <p class="muted">If you work in maritime health, compliance, or technology and are open to a brief conversation, we’d like to hear from you.</p>
+      <p>If you work in maritime health, compliance, or technology and are open to a brief conversation, we’d like to hear from you.</p>
       <div class="contact">
-        <a class="cta" href="mailto:info@murre.fi">Email: info@murre.fi</a>
+        <a class="cta" href="mailto:info@murre.fi" rel="noopener">Email: info@murre.fi</a>
       </div>
     </section>
-  </div>
+  </main>
 </body>
 </html>
